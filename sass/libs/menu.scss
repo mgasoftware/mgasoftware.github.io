@@ -1,0 +1,187 @@
+.menu_header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+  &__logo {
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+    padding-bottom: 15px;
+    margin-bottom: 3px;
+    img {
+      width: 160px;
+    }
+    a i {
+      position: absolute;
+      font-size: 1.3em;
+      left: 20px;
+    }
+  }
+  &__image {
+    position: relative;
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+  }
+  &__image2 {
+    position: relative;
+    img {
+      width: 100%;
+      height: 250px;
+    }
+  }
+  &__text {
+    width: 100%;
+    position: absolute;
+    background-color: #f6f6f6;
+    top: 280px;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    font-size: 1.1em;
+    font-family: Shrikhand;
+    h1 {
+      padding-top: 10px;
+      padding-left: 20px;
+    }
+    i {
+      padding-left: 50px;
+      opacity: 0.5;
+      transition: opacity 2.6s;
+    }
+    i:hover {
+        opacity: 1;
+        font-weight: bold;
+        color: $primary;
+        background: -webkit-linear-gradient($primary, $secondary);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+  }
+}
+.menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 20px;
+  padding-right: 20px;
+  background-color: #f6f6f6;
+  &__detail {
+    h2 {
+      padding-top: 20px;
+      padding-bottom: 5px;
+      font-size: 1em;
+      font-weight: 300;
+      span {
+        border-bottom: solid;
+        border-bottom-color: $tertiary;
+      }
+    }
+    &--list {
+      @include fade;
+      opacity: 0;
+      animation-fill-mode: forwards;
+      margin-bottom: 15px;
+      display: flex;
+      justify-content: space-between;
+      cursor: pointer;
+      background-color: white;
+      border-radius: 15px;
+      box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.363);
+      .box {
+        position: relative;
+        transition: transform 1s, width 1s;
+        background: $tertiary;
+        width: 0px;
+        height: 61.7px;
+        border-top-right-radius: 15px;
+        border-bottom-right-radius: 15px;
+        .fa-circle-check {
+          position: absolute;
+          left: 18px;
+          top: 20px;
+          color: $tertiary;
+          background: white;
+          border-radius: 50%;
+          font-size: x-large;
+          opacity: 0;
+          transition: opacity 0.6s;
+        }
+      }
+      &--zone {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        transition: width 1s;
+        h3 {
+          margin: 0;
+          padding-top: 10px;
+          padding-left: 10px;
+          font-weight: 500;
+          font-size: 1.1em;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+        }
+        &--body {
+          display: flex;
+          justify-content: space-between;
+          p {
+            margin: 0;
+            padding-left: 10px;
+            padding-top: 5px;
+            padding-bottom: 10px;
+            font-size: 0.9em;
+            font-weight: 300;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+          }
+          .price p {
+            font-weight: bold;
+            padding-right: 10px;
+          }
+        }
+      }
+    }
+  }
+}
+.btn {
+  display: flex;
+  justify-content: center;
+  background-color: #f6f6f6;
+  &__order {
+    @include btn_default;
+    margin-left: 80px;
+    margin-right: 80px;
+    margin-top: 30px;
+    padding: 15px 50px 15px 50px;
+  }
+  :hover {
+    background: linear-gradient(lighten($secondary, 3%), lighten($primary, 3%));
+    box-shadow: 3px 3px 7px darken(black, 15%);
+  }
+}
+
+.menu__detail--list:hover {
+  .box {
+    transform: translateX(0px);
+    width: 70px;
+  }
+  .menu__detail--list--zone {
+    width: 77%;
+  }
+  .fa-circle-check {
+    opacity: 1;
+    transform: rotateZ(360deg);
+    transition: transform 1s;
+  }
+}
+
+@for $i from 1 through 10 {
+  .menu__detail--list:nth-child(#{$i}n) {
+    animation-delay: #{$i * 0.2}s;
+  }
+}
+

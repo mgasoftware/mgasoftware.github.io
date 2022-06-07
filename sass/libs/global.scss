@@ -1,0 +1,62 @@
+// VARIABLE
+
+$primary: #9356dc;
+$secondary: #ff79da;
+$tertiary: #99e2d0;
+$timer: 0;
+
+// Style par default
+
+#container {
+    font-family: Roboto;
+}
+h1 {
+    font-size: 1.5em;
+}
+h2 {
+    font-size: 1.2em;
+}
+a {
+    color: black;
+    outline: none;
+    text-decoration: none;
+}
+ul {
+    padding: 0px;
+}
+li {
+    list-style: none;
+}
+button {
+    border: none;
+}
+
+// MIXIN
+
+@mixin btn_default {
+    cursor: pointer;
+    background: linear-gradient($secondary, $primary);
+    color: white;
+    margin-top: 10px;
+    margin-bottom: 50px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 25px;
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.363);
+}
+@mixin fade {
+    animation: fadein 1.6s;
+}
+
+// KEYFRAMES
+
+@keyframes fadein {
+    from {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}

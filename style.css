@@ -739,6 +739,7 @@ footer ul li a i {
   height: 61.7px;
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
+  overflow: hidden;
 }
 .menu__detail--list .box .fa-circle-check {
   position: absolute;
